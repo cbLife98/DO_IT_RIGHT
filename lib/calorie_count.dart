@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CalorieCount extends StatelessWidget{
+  final key = new GlobalKey<ScaffoldState>();
+
+
   @override
   Widget build(BuildContext context) {
+    final key = new GlobalKey<ScaffoldState>();
     var now = new DateTime.now();
     return new Scaffold(
+      key: key,
       appBar: new AppBar(
         title: new Text("Calorie Count"),
         centerTitle: true,
@@ -35,18 +40,23 @@ class CalorieCount extends StatelessWidget{
           new RaisedButton(
               child: new Text("TOTAL"),
               onPressed:(){
-            final snackBar = SnackBar(
-              content: Text('you have burnt 4051 CALORIES today'),
-              action: SnackBarAction(
-                label: 'Undo',
-                onPressed: () {
-                  // Some code to undo the change!
-                },
+                key.currentState.showSnackBar(new SnackBar(
+                  content: new Text("Sending Message"),
+                ));
 
-              ),
-
-            );
-            Scaffold.of(context).showSnackBar(snackBar);
+//            final snackBar = SnackBar(
+//              duration: Duration(seconds: 10),
+//              content: Text('you have burnt 4051 CALORIES today'),
+//              action: SnackBarAction(
+//                label: 'Undo',
+//                onPressed: () {
+//                  // Some code to undo the change!
+//                },
+//
+//              ),
+//
+//            );
+//            Scaffold.of(context).showSnackBar(snackBar);
           }
           
           ),

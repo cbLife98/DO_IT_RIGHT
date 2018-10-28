@@ -4,7 +4,7 @@ import 'Exercise_plans.dart';
 import 'bmi.dart';
 import 'calorie_count.dart';
 import 'yoga.dart';
-import 'history.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() => runApp(new MyApp());
 
@@ -32,11 +32,13 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final key = new GlobalKey<ScaffoldState>();
 
-  _showToast() {
-    key.currentState.showSnackBar(new SnackBar(
-      content: new Text("Sending message to nearest ambulance"),
-    ));
+  void showLongToast() {
+    Fluttertoast.showToast(
+      msg: "This is Long Toast",
+      toastLength: Toast.LENGTH_LONG,
+    );
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -118,21 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
           InkWell(
             highlightColor: Colors.white.withAlpha(30),
             splashColor: Colors.white.withAlpha(20),
-            onTap: () {
-              final snackBar = SnackBar(
-                content: Text('Yay! A SnackBar!'),
-                action: SnackBarAction(
-                  label: 'Undo',
-                  onPressed: () {
-                    // Some code to undo the change!
-                  },
-
-                ),
-
-              );
-              Scaffold.of(context).showSnackBar(snackBar);
-
-            },
+            onTap: showLongToast,
     //Navigator.push(context,
 //                new MaterialPageRoute(builder: (context) => new History())),
             child: new Card(
