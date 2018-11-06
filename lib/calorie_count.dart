@@ -41,7 +41,7 @@ class CalorieCount extends StatelessWidget{
               child: new Text("TOTAL"),
               onPressed:(){
                 key.currentState.showSnackBar(new SnackBar(
-                  content: new Text("Sending Message"),
+                  content: new Text("You burned 5051 Calories today!!"),
                 ));
 
 //            final snackBar = SnackBar(
